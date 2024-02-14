@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+service MessageService {
+  // Publisher connection: Stream - Unary
+  rpc Publish(stream Message) returns (PublishResponse) {}
+
+  // Client connection: Unary - Stream
+  rpc Subscribe(SubscribeRequest) returns (stream Message) {}
+}
+
+message PublishResponse {
+  string status = 1;
+}
+
+message SubscribeRequest {
+  string subscriber = 1;
+}
+
+
+message Message {
+  int32 author = 1;
+  string data = 2;
+}
