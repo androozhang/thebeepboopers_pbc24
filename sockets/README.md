@@ -26,6 +26,9 @@ To run each component, navigate to its respective directory and execute the `bas
 2. **Start the Publisher**: Navigate to `tester/publisher` and run `bash start.sh`. This will start sending messages to the server on port 8001.
 3. **Start the Client**: Navigate to `tester/client` and run `bash start.sh` to start listening for messages from the server on port 8002.
 
+### Benchmarking
+A sample benchmark is located in `tester/benchmark_1n`. This benchmark tests the efficiency of message distribution from the publisher to multiple clients, simulating a real-world scenario where large amounts of data are transferred over the network.
+
 ### Architecture
 This implementation uses sockets for communication between the server, publisher, and client. The publisher generates a random string of 1024 characters for each message, simulating a real-world scenario where large amounts of data are transferred over the network. It is crucial that the server listens on the specified ports to ensure seamless communication between the components.
 

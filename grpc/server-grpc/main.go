@@ -42,6 +42,7 @@ func (s *server) Publish(stream pb.MessageService_PublishServer) error {
 			}
 			return true
 		})
+		log.Println("Message successfully sent to subscribers")
 	}
 	return nil
 }

@@ -27,6 +27,7 @@ publisherServer.on('connection', (ws) => {
     // Broadcasting message to all connected clients
     clients.forEach(client => {
       if (client.readyState === WebSocket.OPEN) {
+        console.log(`Sending message to client`);
         client.send(data);
       }
     });
