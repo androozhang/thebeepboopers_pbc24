@@ -34,3 +34,9 @@ sh start.sh
 
 ### Latency Comparison: Latency of 1000 publisher and 1000 subscribers
 ![scatter_plot1kto1k](https://github.com/androozhang/thebeepboopers_pbc24/assets/82245268/0e057f42-63bf-4525-b36c-478a8005ff6f)
+
+## Youtube
+https://www.youtube.com/watch?v=snVub3UDGFk&ab_channel=Kyle
+
+## Twitter
+https://twitter.com/kxle_v/status/1761404054989905953?s=42
