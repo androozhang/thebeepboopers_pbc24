@@ -1,1 +1,0 @@
-bun run main.js
