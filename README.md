@@ -47,3 +47,63 @@ https://www.youtube.com/watch?v=snVub3UDGFk&ab_channel=Kyle
 
 ## Twitter
 https://twitter.com/kxle_v/status/1761404054989905953?s=42
+
+1
+
+Participant/Team Name
+Andrew Zhang, Alan Wang, Kyle Vong, Andriy Luchko
+
+2
+
+Project Name
+WebSocket Multi-Client Messaging with Web Workers
+
+3
+
+Link to Tweet
+https://twitter.com/kxle_v/status/1761404054989905953?s=42
+
+4
+
+Brief description of your project (One Paragraph - 500 Words)
+This project demonstrates a WebSocket-based multi-client messaging system, utilizing Web Workers to enhance concurrency and employing asynchronous operations to optimize latency. Web Workers provide a way to run scripts in the background, separate from the main thread. This project leverages Web Workers to handle message sending concurrently, improving the overall performance and responsiveness of the system. Asynchronous operations are used to simulate non-blocking behavior, allowing the system to continue processing other tasks while waiting for I/O operations (such as sending messages) to complete. This prevents the system from getting blocked during the interactions.
+
+5
+
+Country / Region
+USA
+
+6
+
+Technical Solution your dApp is based on?
+Multithreading and Async
+
+7
+
+Which theme best describes your dApp?
+N/A
+
+8
+
+What sponsor bounty you're applying to? (Note: Can me multiple)
+Synoptic Bounty 1
+
+9
+
+Link to pitch deck (MUST INCLUDE LIVE DEMO LINK)
+https://docs.google.com/presentation/d/1hPn_EuL-6sEYXDa9Gf8ZKBBtVAIgblMdhRD0ecgHO14/edit#slide=id.g2a7fc65ecbe_0_125
+
+10
+
+Deployed Smart Contract Address
+N/A
+
+11
+
+Deployed to Any other Chain Yes/No
+N.A
+
+12
+
+Is this part of a larger / past project? If yes, please include repo for larger project. Note: this can only help you. We are simply curious to see integration plans for your hackathon project.
+No
