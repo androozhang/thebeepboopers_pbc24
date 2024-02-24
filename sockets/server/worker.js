@@ -12,6 +12,7 @@ class MyWorker {
     const promises = clients.map(client => {
       return sendAsyncMessage(client, message)
         .then(() => {
+          console.log('Message sent successfully to client');
         })
         .catch((error) => {
           console.error('Error sending message to client:', error);
@@ -21,6 +22,7 @@ class MyWorker {
     // Simulate some processing
     setTimeout(() => {
       // Confirm that the worker got the message
+      callback('Worker received the message');
     }, 0);
 
     return Promise.all(promises);
@@ -45,7 +47,7 @@ function distributeMessageInParallel(message, clients, callback) {
   Worker2.onmessage([message, secondQuarter, callback]);
   Worker3.onmessage([message, thirdQuarter, callback]);
   Worker4.onmessage([message, fourthQuarter, callback]);
-  
+
 }
 
 // Simulated asynchronous function to send a message to a client
