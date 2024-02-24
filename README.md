@@ -22,10 +22,10 @@ Web Workers provide a way to run scripts in the background, separate from the ma
 
 ## Benchmarking
 
-To benchmark the system, you can run the provided benchmark script:
+To benchmark the system, you can run the provided benchmark script with the server hosted:
 
 ```bash
-cd sockets/socket
+cd sockets/tester/benchmark_1n
 sh start.sh
 ```
 ## Graphs
