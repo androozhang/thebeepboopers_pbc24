@@ -47,26 +47,20 @@ if __name__ == "__main__":
 
     os.chdir('sockets')
 
-    numberOfTrials = 100
+    numberOfTrials = 1
     testCooldownOneToMany = 1
     testCooldownManyToMany = 5
 
-    finalResultsOneToMany = getTestResults(final_script_path_one_to_many, numberOfTrials, testCooldownOneToMany)
-    time.sleep(10)
     finalResultsManyToMany = getTestResults(final_script_path_many_to_many, numberOfTrials, testCooldownManyToMany)
-    time.sleep(10)
-    starterResultsOneToMany = getTestResults(starter_script_path_one_to_many, numberOfTrials, testCooldownOneToMany)
-    time.sleep(10)
+    time.sleep(15)
     starterResultsManyToMany = getTestResults(starter_script_path_many_to_many, numberOfTrials, testCooldownManyToMany)
 
 
     
 
-    with open('results2.csv', 'w', newline='') as file:
+    with open('resultsmanytomany.csv', 'w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(starterResultsOneToMany)
         writer.writerow(starterResultsManyToMany)
-        writer.writerow(finalResultsOneToMany)
         writer.writerow(finalResultsManyToMany)
 
     

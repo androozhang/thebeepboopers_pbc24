@@ -1,7 +1,5 @@
 # WebSocket Multi-Client Messaging with Web Workers
 
-This repository contains the infrastructure for the Synoptic Bounty. The infrastructure is divided into three main components: server, publisher, and client. The server listens for messages from the publisher and sends them to the client. The publisher generates random messages and sends them to the server, while the client listens for messages from the server.
-![Alt text](sockets/scatter_plot1kto1k.png)
 ## Overview
 
 This project demonstrates a WebSocket-based multi-client messaging system, utilizing Web Workers to enhance concurrency and employing asynchronous operations to optimize latency.
@@ -31,4 +29,6 @@ cd sockets/socket
 sh start.sh
 ```
 ## Graphs
+![scatter_plot1to1k](https://github.com/androozhang/thebeepboopers_pbc24/assets/82245268/7355677f-1c44-40cb-a023-e75cc33fdae4)
 
+![scatter_plot1kto1k](https://github.com/androozhang/thebeepboopers_pbc24/assets/82245268/0e057f42-63bf-4525-b36c-478a8005ff6f)

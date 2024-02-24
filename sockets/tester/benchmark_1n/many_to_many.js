@@ -7,7 +7,7 @@ const numClients = 1000;
 const numPublishers = 1000;
 
 let clients = [];
-let messageReceivedPromises = [];
+let messageReceivedCounts = [];
 
 function generateRandomString(length) {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -22,14 +22,15 @@ function generateRandomString(length) {
 function createClient(id) {
   return new Promise((resolve, reject) => {
     const ws = new WebSocket(clientUrl);
-    const messageReceivedPromise = new Promise((messageResolve) => {
-      ws.on('message', (data) => {
-        messageResolve(); // Resolve when message is received
-      });
+    const messageReceivedCount = 0; // Initialize received message count
+    messageReceivedCounts.push(messageReceivedCount); // Add to message count array
+
+    ws.on('message', (data) => {
+      messageReceivedCounts[id]++; // Increment received message count for client
     });
-    messageReceivedPromises.push(messageReceivedPromise); // Add to array of promises
 
     ws.on('open', () => {
+      console.log(`Client ${id} connected`);
       resolve(ws);
     });
     ws.on('error', (err) => {
@@ -58,6 +59,7 @@ function publishMessage(publisherId) {
         data: generateRandomString(1024) // Random string of length 1024
       };
       ws.send(JSON.stringify(message));
+      console.log(`Publisher ${publisherId} published message`);
       resolve();
     });
     ws.on('error', (err) => {
@@ -77,21 +79,34 @@ async function benchmark() {
 
   console.log('Starting benchmark...');
   const startBenchmark = performance.now();
-  
+
   // Create and run publishers concurrently
   const publisherPromises = [];
   for (let i = 0; i < numPublishers; i++) {
     publisherPromises.push(publishMessage(i));
   }
-  
-  // Wait for all publishers and clients to finish
-  await Promise.all([...publisherPromises, ...messageReceivedPromises]);
-  
+
+  // Wait for all publishers to finish
+  await Promise.all(publisherPromises);
+
+  // Wait for all clients to receive expected number of messages
+  const expectedMessagesPerClient = numPublishers; // Assuming each client receives from all publishers
+  const clientsFinished = [];
+  for (let i = 0; i < numClients; i++) {
+    while (messageReceivedCounts[i] < expectedMessagesPerClient) {
+      await new Promise(resolve => setTimeout(resolve, 100)); // Wait briefly for messages
+    }
+    clientsFinished.push(i); // Mark client as finished
+  }
+
   const benchmarkDuration = performance.now() - startBenchmark;
   console.log(`Benchmark completed in ${benchmarkDuration}ms`);
 
   // Cleanup
   clients.forEach(client => client.close());
+  console.log(`All clients received ${expectedMessagesPerClient} messages each.`);
+  console.log(`Clients finished in order: ${clientsFinished.join(', ')}`);
 }
+
 
 benchmark().catch(console.error);
