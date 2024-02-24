@@ -35,14 +35,14 @@ final1kto1k_mean = np.mean(final1kto1k_array)
 final1kto1k_variance = np.var(final1kto1k_array)
 
 # Print the results
-print("Starter1to1k Mean:", starter1to1k_mean)
-print("Starter1to1k Variance:", starter1to1k_variance)
+print("Starter Mean:", starter1to1k_mean)
+print("Starter Variance:", starter1to1k_variance)
 
-print("Starter1kto1k Mean:", starter1kto1k_mean)
-print("Starter1kto1k Variance:", starter1kto1k_variance)
+print("Starter Mean:", starter1kto1k_mean)
+print("Starter Variance:", starter1kto1k_variance)
 
-print("Final1to1k Mean:", final1to1k_mean)
-print("Final1to1k Variance:", final1to1k_variance)
+print("Final Mean:", final1to1k_mean)
+print("Final Variance:", final1to1k_variance)
 
-print("Final1kto1k Mean:", final1kto1k_mean)
-print("Final1kto1k Variance:", final1kto1k_variance)
+print("Final Mean:", final1kto1k_mean)
+print("Final Variance:", final1kto1k_variance)
