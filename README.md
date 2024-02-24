@@ -24,16 +24,23 @@ Web Workers provide a way to run scripts in the background, separate from the ma
 
 To benchmark the system, you can run the provided benchmark script with the server hosted:
 
-1 to 1000
+1 to 1000 
 ```bash
 cd sockets/tester/benchmark_1n
-sh start.sh
+sh one_to_many.sh
 ```
 1000 to 1000
 ```bash
 cd sockets/tester/benchmark_1n
-bun bun run many_to_many.js
+sh many_to_many.sh
 ```
+gatherData.py is a Python script that repeatedly calls a bash script which opens one terminal to start the server and one terminal to call the benchmark 
+It does this for a certain number of trials for the starter code one to many and many to many and our final code one to many and many to many
+The benchmark results are written to a text file which is read and the runtime is saved into a CSV file which will end up with all the runtime data of the 4 categories
+Running gatherData.py
+Prerequisites: We used goblin-terminal for the simulated terminals which is only available on Linux - https://www.wikihow.com/Install-Gnome-on-Ubuntu
+Then just run the gatherData.py file
+
 
 ## Graphs
 ### Latency Comparison: Latency of one publisher and 1000 subscribers
@@ -45,65 +52,62 @@ bun bun run many_to_many.js
 ## Youtube
 https://www.youtube.com/watch?v=snVub3UDGFk&ab_channel=Kyle
 
-## Twitter
-https://twitter.com/kxle_v/status/1761404054989905953?s=42
-
-1
+## 1
 
 Participant/Team Name
 Andrew Zhang, Alan Wang, Kyle Vong, Andriy Luchko
 
-2
+## 2
 
 Project Name
 WebSocket Multi-Client Messaging with Web Workers
 
-3
+## 3
 
 Link to Tweet
 https://twitter.com/kxle_v/status/1761404054989905953?s=42
 
-4
+## 4
 
 Brief description of your project (One Paragraph - 500 Words)
 This project demonstrates a WebSocket-based multi-client messaging system, utilizing Web Workers to enhance concurrency and employing asynchronous operations to optimize latency. Web Workers provide a way to run scripts in the background, separate from the main thread. This project leverages Web Workers to handle message sending concurrently, improving the overall performance and responsiveness of the system. Asynchronous operations are used to simulate non-blocking behavior, allowing the system to continue processing other tasks while waiting for I/O operations (such as sending messages) to complete. This prevents the system from getting blocked during the interactions.
 
-5
+## 5
 
 Country / Region
 USA
 
-6
+## 6
 
 Technical Solution your dApp is based on?
 Multithreading and Async
 
-7
+## 7
 
 Which theme best describes your dApp?
 N/A
 
-8
+## 8
 
 What sponsor bounty you're applying to? (Note: Can me multiple)
 Synoptic Bounty 1
 
-9
+## 9
 
 Link to pitch deck (MUST INCLUDE LIVE DEMO LINK)
 https://docs.google.com/presentation/d/1hPn_EuL-6sEYXDa9Gf8ZKBBtVAIgblMdhRD0ecgHO14/edit#slide=id.g2a7fc65ecbe_0_125
 
-10
+## 10
 
 Deployed Smart Contract Address
 N/A
 
-11
+## 11
 
 Deployed to Any other Chain Yes/No
 N.A
 
-12
+## 12
 
 Is this part of a larger / past project? If yes, please include repo for larger project. Note: this can only help you. We are simply curious to see integration plans for your hackathon project.
 No
