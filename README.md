@@ -1,4 +1,4 @@
-# WebSocket Multi-Client Messaging with Web Workers
+# WebSocket Multi-Client Messaging with Web Workers - Synoptic Bounty 1
 
 ## Overview
 
