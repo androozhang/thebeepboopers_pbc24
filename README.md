@@ -24,10 +24,17 @@ Web Workers provide a way to run scripts in the background, separate from the ma
 
 To benchmark the system, you can run the provided benchmark script with the server hosted:
 
+1 to 1000
 ```bash
 cd sockets/tester/benchmark_1n
 sh start.sh
 ```
+1000 to 1000
+```bash
+cd sockets/tester/benchmark_1n
+bun bun run many_to_many.js
+```
+
 ## Graphs
 ### Latency Comparison: Latency of one publisher and 1000 subscribers
 ![scatter_plot1to1k](https://github.com/androozhang/thebeepboopers_pbc24/assets/82245268/7355677f-1c44-40cb-a023-e75cc33fdae4)
