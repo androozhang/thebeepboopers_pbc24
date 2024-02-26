@@ -1,10 +1,11 @@
 const WebSocket = require('ws');
+const os = require('os');
 const { createWorker, distributeMessageInParallel } = require('./worker');
 
 const clientServer = new WebSocket.Server({ port: 8002 });
 let clients = [];
 let workers = [];
-const numCPUs = 4;
+const numCPUs = os.cpus().length;
 for (let i = 0; i < numCPUs; i++) {
   workers.push(createWorker());
 }
