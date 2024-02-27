@@ -100,12 +100,12 @@ async function benchmark() {
   }
 
   const benchmarkDuration = performance.now() - startBenchmark;
-  console.log(`Benchmark completed in ${benchmarkDuration}ms`);
 
   // Cleanup
   clients.forEach(client => client.close());
   console.log(`All clients received ${expectedMessagesPerClient} messages each.`);
   console.log(`Clients finished in order: ${clientsFinished.join(', ')}`);
+  console.log(`Benchmark completed in ${benchmarkDuration}ms`);
 }
 
 

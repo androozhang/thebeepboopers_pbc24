@@ -5,7 +5,7 @@ import numpy as np
 os.chdir('sockets')
 
 # Open the file in read mode
-with open('results.csv', 'r') as file:
+with open('resultsReusingWorkers.csv', 'r') as file:
     # Read all lines from the file
     lines = file.readlines()
 

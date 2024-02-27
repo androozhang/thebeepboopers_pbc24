@@ -1,9 +1,14 @@
 const WebSocket = require('ws');
+const os = require('os');
 const { createWorker, distributeMessageInParallel } = require('./worker');
 
 const clientServer = new WebSocket.Server({ port: 8002 });
 let clients = [];
-
+let workers = [];
+const numCPUs = os.cpus().length;
+for (let i = 0; i < numCPUs; i++) {
+  workers.push(createWorker());
+}
 clientServer.on('connection', (ws) => {
   console.log('New client connected');
   clients.push(ws);
@@ -22,9 +27,18 @@ publisherServer.on('connection', (ws) => {
   ws.on('message', (data) => {
     console.log(`Message received from publisher: ${data}`);
     // Broadcasting message to all connected clients in parallel
-    distributeMessageInParallel(data, clients, (confirmation) => {
-      console.log(confirmation);
-    });
+    let section = Math.floor(clients.length / numCPUs);
+    let remainder = clients.length % numCPUs;
+
+    for (let i = 0; i < numCPUs; i++) {
+      let start = i * section + Math.min(i, remainder);
+      let end = (i + 1) * section + Math.min(i + 1, remainder);
+
+      distributeMessageInParallel(data, clients.slice(start, end), workers[i], (confirmation) => {
+        console.log(confirmation);
+      });
+    }
+
   });
 
   ws.on('close', () => {

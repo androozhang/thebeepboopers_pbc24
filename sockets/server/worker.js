@@ -29,25 +29,8 @@ class MyWorker {
   }
 }
 
-function distributeMessageInParallel(message, clients, callback) {
-  const Worker1 = createWorker();
-  const Worker2 = createWorker();
-  const Worker3 = createWorker();
-  const Worker4 = createWorker();
-  // Calculate the midpoint of the array
-  let quarter = Math.floor(clients.length / 4);
-  let half = quarter * 2
-  let lastQuarter = half + quarter
-  // Split the array into two halves
-  let firstQuarter = clients.slice(0, quarter);
-  let secondQuarter = clients.slice(quarter, half);
-  let thirdQuarter = clients.slice(half, lastQuarter);
-  let fourthQuarter = clients.slice(lastQuarter);
-  Worker1.onmessage([message, firstQuarter, callback]);
-  Worker2.onmessage([message, secondQuarter, callback]);
-  Worker3.onmessage([message, thirdQuarter, callback]);
-  Worker4.onmessage([message, fourthQuarter, callback]);
-
+function distributeMessageInParallel(message, clients, worker, callback) {
+  worker.onmessage([message, clients, callback]);
 }
 
 // Simulated asynchronous function to send a message to a client
