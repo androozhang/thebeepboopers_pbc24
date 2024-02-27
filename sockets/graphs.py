@@ -4,7 +4,7 @@ import ast
 os.chdir('sockets')
 
 # Open the file in read mode
-with open('results.csv', 'r') as file:
+with open('resultsReusingWorkers.csv', 'r') as file:
     # Read all lines from the file
     lines = file.readlines()
 
@@ -31,7 +31,7 @@ plt.ylabel('ms')
 plt.legend()
 
 # Show the first plot
-plt.savefig('scatter_plot1to1k.png')
+plt.savefig('scatter_plot1to1kResuing.png')
 
 # Assuming the lengths of starter1kto1k_data and final1kto1k_data are the same
 data_points_2 = range(1, len(starter1kto1k_data) + 1)
@@ -49,11 +49,11 @@ plt.ylabel('ms')
 plt.legend()
 
 # Show the second plot
-plt.savefig('scatter_plot1kto1k.png')
+plt.savefig('scatter_plot1kto1kReusing.png')
 
 fig3 = plt.figure(figsize=(8, 6))
 plt.plot(data_points_2, final1kto1k_data, label='final1kto1k_data', color='red')  # Use a different color for the line graph
 plt.xlabel('Trial')
 plt.ylabel('ms')
 plt.legend()
-plt.savefig('line_plot1kto1k.png')
+plt.savefig('line_plot1kto1kReusing.png')
